@@ -1,0 +1,8 @@
+# Dependencies (heavy folders)
+node_modules/
+
+# Environment variables (contains private API keys & DB passwords)
+.env
+
+# Mac system files
+.DS_Store
