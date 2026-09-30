@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thaikootam Travel | Help Center & Concierge</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- 1. Airbnb-Style Minimalist Top Header -->
+  <header class="airbnb-nav">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <div class="brand-logo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Thaikootam Travel</span>
+          <span class="brand-divider">/</span>
+          <span class="brand-sub">Help Center</span>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <!-- Live DB Status -->
+        <div class="status-pill" id="statusPill" title="PostgreSQL + pgvector connection status">
+          <span class="status-dot" id="statusDot"></span>
+          <span class="status-label" id="statusText">Checking system...</span>
+        </div>
+
+        <!-- Sync KB Button -->
+        <button id="ingestBtn" class="btn-ghost" title="Re-index markdown documents from data/ into pgvector">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+          </svg>
+          <span>Sync Policies</span>
+        </button>
+
+        <!-- Language Globe -->
+        <div class="lang-selector" title="Language: English (US)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/>
+          </svg>
+        </div>
+
+        <!-- Airbnb User Profile Pill -->
+        <div class="user-pill" title="Traveler Profile">
+          <svg class="menu-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+          <div class="avatar-circle">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. Main Two-Column Travel Workspace (Trip.com Layout) -->
+  <div class="workspace-wrapper">
+    <div class="workspace-container">
+      
+      <!-- LEFT COLUMN: Main Chat & Support Conversation (70%) -->
+      <section class="chat-column">
+        <!-- Subheader / History link -->
+        <div class="chat-topbar">
+          <span class="chat-topic-label">Hotels, Flights & Packages Concierge</span>
+          <button class="link-past-messages" id="clearHistoryBtn">View past messages</button>
+        </div>
+
+        <!-- Chat Stream -->
+        <div class="chat-stream" id="chatContainer">
+          <!-- Welcome Greeting Card (Airbnb Human Touch) -->
+          <div class="welcome-banner">
+            <div class="welcome-heading">
+              <h2>Hi there, how can we help with your trip?</h2>
+              <p>Ask about flight refunds, baggage allowances, or tour packages for Keralam, Hyderabad, Amsterdam, Bali, and Japan. Grounded in verified Thaikootam policies.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Action Suggestions (Trip.com Chips) -->
+        <div class="quick-chips-row">
+          <button class="action-chip" data-query="Tell me about the Keralam Backwaters & Hills package details and price">
+            🌴 Keralam Tour
+          </button>
+          <button class="action-chip" data-query="What does the Hyderabad Royal Heritage & Culinary trail include?">
+            🏰 Hyderabad Heritage & Biryani
+          </button>
+          <button class="action-chip" data-query="What are the highlights and price for the Amsterdam package?">
+            🌷 Amsterdam Canals
+          </button>
+          <button class="action-chip" data-query="What is the cancellation policy for tour packages?">
+            📋 Tour Cancellation Policy
+          </button>
+          <button class="action-chip" data-query="How much checked baggage is allowed on flights to Kerala or Hyderabad?">
+            🧳 Domestic Baggage Rules
+          </button>
+        </div>
+
+        <!-- Chat Input Area (Trip.com Toolbar & Textarea) -->
+        <div class="composer-container">
+          <div class="composer-toolbar">
+            <button type="button" class="toolbar-btn" title="Add emoji">😊</button>
+            <button type="button" class="toolbar-btn" title="Attach itinerary or booking receipt">📁</button>
+            <button type="button" class="toolbar-btn" title="Upload screenshot">📷</button>
+            <button type="button" class="toolbar-btn" title="Translate chat">🌐</button>
+            <span class="toolbar-hint">Press Enter to send</span>
+          </div>
+
+          <form id="chatForm" class="composer-form">
+            <textarea 
+              id="userInput" 
+              placeholder="What should I do if the money is not returned to the card?" 
+              rows="2" 
+              required
+            ></textarea>
+            <div class="composer-actions">
+              <button type="submit" id="sendBtn" class="btn-send">
+                <span>Send</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </button>
+            </div>
+          </form>
+
+          <div class="composer-footer">
+            <span>🛡️ Powered by <strong>PostgreSQL + pgvector</strong> & <strong>Google Gemini RAG</strong></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN: Trip.com Current Booking & Trust Sidebar (30%) -->
+      <aside class="sidebar-column">
+        <!-- Current Booking Card -->
+        <div class="sidebar-card booking-card">
+          <div class="card-header">
+            <h3>Current booking</h3>
+          </div>
+          
+          <div class="booking-status-tag status-canceled">
+            <span class="status-indicator-square"></span>
+            <span>Canceled</span>
+          </div>
+
+          <div class="booking-hotel-name">
+            Ramada Hong Kong Harbour View
+          </div>
+          <div class="booking-room-type">
+            Deluxe Ocean View Double Room • 4 Nights
+          </div>
+
+          <div class="booking-meta-row">
+            <span class="meta-label">Booking No.</span>
+            <span class="meta-value">TK-7498750615</span>
+          </div>
+
+          <div class="booking-actions">
+            <button class="btn-card-details" onclick="alert('Booking Details:\nHotel: Ramada Hong Kong Harbour View\nStatus: Canceled\nRefund Status: Initiated via Visa card ending in 4400.')">Details</button>
+            <a href="#view-all" class="link-view-all" onclick="alert('Viewing all 3 past bookings for this traveler.'); return false;">
+              View all <span>›</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Book with Confidence Card -->
+        <div class="sidebar-card confidence-card">
+          <div class="card-header">
+            <h3>Book with confidence</h3>
+          </div>
+          <ul class="confidence-list">
+            <li>
+              <div class="confidence-icon icon-teal">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <div class="confidence-text">
+                <strong>Travel Worry-free</strong>
+                <span>Guaranteed refunds strictly per policy guidelines</span>
+              </div>
+            </li>
+            <li>
+              <div class="confidence-icon icon-cyan">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <div class="confidence-text">
+                <strong>Support in approx. 30s</strong>
+                <span>Instant grounded answers via vector search</span>
+              </div>
+            </li>
+            <li>
+              <div class="confidence-icon icon-orange">
+                <span class="badge-letter">T</span>
+              </div>
+              <div class="confidence-text">
+                <strong>Get rewarded for traveling</strong>
+                <span>Earn Thaikootam Travel credits on every booking</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Quick Assistance Card -->
+        <div class="sidebar-card quick-help-card">
+          <div class="help-content">
+            <span class="help-icon">📞</span>
+            <div>
+              <div class="help-title">Need human assistance?</div>
+              <div class="help-subtitle">Our travel desk is available 24/7 at <strong>support@thaikootamtravel.com</strong></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

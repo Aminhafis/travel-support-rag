@@ -1,4 +1,4 @@
-# Thaikkudam Travel Co. - Cancellation & Refund Policy
+# Thaikootam Travel - Cancellation & Refund Policy
 
 ## Flight Cancellations
 - **Cancellations within 24 Hours of Booking:** All flight bookings are eligible for a 100% full refund with zero cancellation fees if cancelled within 24 hours of booking, provided the departure date is at least 7 days away.
@@ -11,6 +11,13 @@
 - **Non-Refundable Promo Rates:** No refunds are issued for promo or flash-sale rates under any circumstances.
 - **Early Checkout:** Leaving earlier than the reserved checkout date does not entitle the traveler to a refund for unused nights.
 
-## Refund Processing Times
-- Credit and Debit Card refunds typically appear on the customer statement within 5 to 10 business days after cancellation approval.
-- Net banking and digital wallet refunds take 2 to 4 business days.
+## Tour Package & Experience Cancellations
+- **30+ Days Before Tour Start Date:** 90% refund (10% retained for deposit and supplier advance booking charges).
+- **15 to 29 Days Before Tour Start Date:** 50% refund across all domestic (Keralam, Hyderabad) and international packages (Amsterdam, Bali, Japan).
+- **Under 14 Days Before Tour Start Date:** Strictly non-refundable due to prepaid luxury houseboat reservations in Alleppey, non-refundable hotel rooms, and museum/rail pass commitments in Amsterdam and Japan.
+
+## Refund Processing Times & Methods
+- **UPI, GPay & Digital Wallets:** Refunds take 24 to 48 business hours once processed.
+- **Credit and Debit Cards (Visa / Mastercard / RuPay):** Refunds typically reflect in the traveler's account within 5 to 7 working days.
+- **Net Banking (NEFT / IMPS):** Settled within 2 to 4 business days.
+- When an airline or operator cancels a service due to severe weather or operational constraints, Thaikootam Travel ensures a 100% full cash refund within 14 business days.

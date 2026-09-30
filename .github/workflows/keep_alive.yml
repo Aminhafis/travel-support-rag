@@ -1,0 +1,33 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    # Runs at 00:00 UTC every 4 days to prevent 7-day inactivity pause
+    - cron: '0 0 */4 * *'
+  workflow_dispatch: # Allows manual trigger anytime from GitHub Actions tab
+
+jobs:
+  ping-supabase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase PostgreSQL via PostgREST
+        run: |
+          echo "🔄 Pinging Supabase travel_documents table..."
+          RESPONSE=$(curl -s -w "\n%{http_code}" -X GET \
+            "https://mtbfguieqlywoldypgko.supabase.co/rest/v1/travel_documents?select=id&limit=1" \
+            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}")
+          
+          HTTP_BODY=$(echo "$RESPONSE" | sed '$d')
+          HTTP_STATUS=$(echo "$RESPONSE" | tail -n 1)
+
+          echo "HTTP Status: $HTTP_STATUS"
+          echo "Response: $HTTP_BODY"
+
+          if [ "$HTTP_STATUS" -eq 200 ] || [ "$HTTP_STATUS" -eq 204 ]; then
+            echo "✅ Supabase ping successful! Inactivity timer has been reset."
+          else
+            echo "⚠️ Unexpected HTTP status: $HTTP_STATUS"
+            # Don't fail the action if it's just waking up
+            exit 0
+          fi

@@ -1,0 +1,22 @@
+{
+  "name": "rag-customer-support",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A learning project for building a customer-support chatbot using Retrieval-Augmented Generation (RAG).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/genai": "^2.21.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "openai": "^7.13.0",
+    "pg": "^8.23.0",
+    "pgvector": "^0.3.0"
+  }
+}
